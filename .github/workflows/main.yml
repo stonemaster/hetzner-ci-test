@@ -1,0 +1,16 @@
+name: Test Hetzner CI cloud
+
+on: [push]
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    name: Checkout Hetzner Cloud CI Action
+    steps:
+      - uses: actions/checkout@v3
+      - id: hetzner-test
+        uses: stonemaster/hetzner-github-runner@HEAD
+        with:
+          github-api-key: ${{ secrets.GH_API_KEY }}
+          hetzner-api-key: ${{ secrets.HETZNER_API_KEY }}
+          hetzner-instance-type: CX11
