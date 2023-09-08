@@ -13,6 +13,6 @@ jobs:
         with:
           github-api-key: ${{ secrets.GH_API_KEY }}
           hetzner-api-key: ${{ secrets.HETZNER_API_KEY }}
-          hetzner-instance-type: CX11
+          hetzner-instance-type: cx11
       - run: env
         shell: bash
