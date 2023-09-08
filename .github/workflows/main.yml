@@ -3,7 +3,7 @@ name: Test Hetzner CI cloud
 on: [push]
 
 jobs:
-  test_job:
+  prepare_env:
     runs-on: ubuntu-latest
     name: Checkout Hetzner Cloud CI Action
     steps:
@@ -14,5 +14,10 @@ jobs:
           github-api-key: ${{ secrets.GH_API_KEY }}
           hetzner-api-key: ${{ secrets.HETZNER_API_KEY }}
           hetzner-instance-type: cx11
+
+  actual_build:
+    runs-on: self-hosted
+    needs: prepare_env
+    steps:
       - run: env
         shell: bash
